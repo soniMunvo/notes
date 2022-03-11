@@ -1,0 +1,37 @@
+Path will always be /api/v1/configuration
+
+@secured will require users to put bearer token.
+@path will sometimes have a () or {} instead of just a string which represents a variables instead of regex.
+@consumes: that endpoint expects a json()can be other) body.
+@produces: that endpoint produces a defined body(defined from options)
+
+Utils package contains helper methods.
+DAO - data access objects
+Ebean - we can execute the queries the same as sql using EBEAN
+
+(Listeners classes -) Tomcat concept - call the classes once when booting.
+Let tomcat know this class exist: src > webapp> WEB-INF > web.xml and then add new Listener using xml syntax.
+
+Com.munvo.EG.models.json will contain a separate java class file for each table.
+Because it related to Front-end (Data transfer - FrontEnd ---------------> Back-end)
+
+We have EB_FlowChart which has attributes as the same fields as Front-End and in the end we store it as a database object ultimately. 
+
+Check Queue > InboundQueueSQS.java file.
+
+Check Security package - used for authentication (managed by shiro)
+
+Threads package:
+	InboundQueueConsumerThread - logic to process the thread.
+	2 queues ----> regular and batch queue
+	Batch queue --> process everything in big volumes. (not time sensitive)
+	Regular --> individual messages - process - real time (time sensitive)
+
+Meat of the product - Tree.java class file
+	getTransformedActionPayload() will do the transfer of data ("event.event_name" ----> "dev" is done here)
+	We have transferValues() and transferVariables() which will generate tow lists and then using the last function.
+	
+Utils Package > Constants has some constants 
+
+Webapp > WEB-INF > shiro.ini ------> new endpoint and need to secure - we have to add it in this file. In[URLs]
+
