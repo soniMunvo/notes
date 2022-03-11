@@ -1,0 +1,27 @@
+Configuration - if I change values in DB, setting won't be applied in backend. Change it using UI and check it using front-end < page source < network  < api call < modified value
+
+OR use postman
+
+Bearer token: contains username and info, kinda authentication mechanism (If I don't put token it's gonna give 401 error)
+
+Tere are some invisible nodes becase in UI (in actual example) those are PARENTS.
+
+
+>>>Tables
+Configuration contains configuration properties
+Flowchart contains flowchart nodes with parents
+The options in UI for flowchart is in flowchart_options table.
+Outbound_option contains every column for the options on the right side options on UI
+Outbound_log contains responses when the action was performed.
+	Input sent - what we send to lambda
+	Output sent - what lambda sends to other api.
+Session keeps sessions.(each parent and child actions' has different sessions)
+	Session is tied to actions
+	But if there no actions even then we create a session for that node.
+	Why we do this? Bc the payload can change, so we see session to observe how the payload is changing.
+Inbound is created when the condition statement goes true.
+Gateway_user: users in db
+RoleName: suggests role - user, admin, external
+Menu_item: item options in UI on left side.
+Persistent_token: instead of login every time and saving we can save them in this table. (modify them if necessary)
+
