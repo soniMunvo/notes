@@ -1,0 +1,98 @@
+AWS Roadmap: Cloud Practitioner - Z)NX(BDmGLP7ArX
+
+
+￼
+
+
+
+>>>aws global network - (collection of region zones) -> (collection of availability zones)
+If one of the A zones fails, it’s not gonna impact the other ones. 
+we store and run our instances whichever is closest to us. 
+
+>>>How prices work
+Based on 3 fundamentals:
+Compute - charged for amount of cpu and memory, and disk space 
+Quantity of Data storage
+Outbound data transfer (data uplaod is free but when we pull that data that is being charged)
+A few less imp: pay-as-we-do, save when reserve, and pay less by using more
+
+>>>Computation
+EC2 instance is used in the same pod with other instances.
+Dedicated host is a physical EC2 server. (can use existing server-bound licences) - more price.
+
+>>>Login
+Professional or Personal (personal in my case)
+Sign in to Console - using either root user email or IAM user.		
+
+>>>SNS(Simple Notification Service)
+Lets you notified by simple http protocols (email)
+create a new topic - name - endpoint is email address
+
+>>>Root vs IAM user and IAM groups
+
+Root user all access - great power - difficult to restrict usages
+IAM - Identity and Access Management Service(IAM)
+IAM  can be used by employees or services.
+IAM policy - document - permission or set of rules. (X, y, z)
+IAM GROUP - Assign policy to this group(CONTAINER) to delegate same permissions to all.
+
+>>>Roles
+
+>>>Authenticatin Methods
+Access Key + API (via code or cmd)
+Using UI(AWS management console) (IAM user + password + mgmnt console)
+
+>>>IAM in deep
+has a lot of permission we can chose to assign it to groups or users.
+User - has denied access to Billing Service, rest all is the same.
+
+>>>Amazon Virtual Private Cloud(VPC)
+Region - VPC - Availability Zone(S) - public and private subnet(S)
+Router is used to send info between different subnets using route table
+0.0.0.0/0 represents everything else.  (Address like these will route requests via Internet gateway to internet)
+CIDR: Classless Interdomain Routing
+
+
+￼
+
+>>>Subnets
+Public Subnets - public ip -internet gateway - access internet directly
+
+private subnets - can’t access internet directly.
+
+>>>VPC in Mgmnt Console
+Different subnets represents different availability zones
+ip address here uses CIDR
+PUBLIC SUBNET -> represents “auto-assign public ipv4 address” as Yes  
+PUBLIC SUBNET -> should also be connected to internet gateway - 
+ - CAN ALSO be conneted by any instance using IP
+
+
+>>>Security Groups and Network Acccess Control Lists(NACLs)
+Security Groups - instance level (EC1, EC2) | can be applied to any instances in any subnet.
+NACL - applied at the subnet level.
+Add new inbound/outbound rules as per our need. 
+0.0.0.0/0 represents any address. over the internet for ipv4 and ::/0 for ipv6
+
+>>>Stateful and Stateless Firewalls
+In AWS, security groups is Stateful and NACL is stateless.
+
+￼
+
+Differences b/w security groups and NACL:
+SG is at instance level while NACL is at subnet level
+SG supports allow rules only while NACL supports allow and deny rules.
+SG is stateful and NACL is stateless
+SG evaluates all rules and then process. NACL processes rules in order
+SG Applies to an instance while NACL applies to al linstances within the subnet. 
+
+>>>Public and Private Services
+￼
+
+AWS cloud has private and public services:
+VPC has private services. 
+Still I can set the visibility of some services by keeping them into public or private subnets. 
+For Ex: I want to connect Amazon S3 through EC2, then I have to go via INTERNET GATEWAY.
+We have VPC-endpoint - we can connect to some services privately. (advanced topic)  
+
+>>>
